@@ -1,0 +1,13 @@
+<launch>
+    <!-- 设置 ORB_SLAM3_relocation 参数 -->
+    <arg name="path_to_vocabulary" default="/home/ant/ORB_SLAM3_relocation/Vocabulary/ORBvoc.txt"/>
+    <arg name="path_to_settings" default="/home/ant/ORB_SLAM3_relocation/Examples/Stereo/RealSense_D435i.yaml"/>
+    <arg name="do_rectify" default="false"/> <!-- 或者根据需要设置为 "true" -->
+
+    <!-- 启动 ORB_SLAM3_relocation 节点 -->
+    <node pkg="ORB_SLAM3_relocation" type="Stereo" name="orb_slam3_relocation_stereo" output="screen" args="$(arg path_to_vocabulary) $(arg path_to_settings) $(arg do_rectify)">
+        <param name="path_to_vocabulary" value="$(arg path_to_vocabulary)"/>
+        <param name="path_to_settings" value="$(arg path_to_settings)"/>
+        <param name="do_rectify" value="$(arg do_rectify)"/>
+    </node>
+</launch>
